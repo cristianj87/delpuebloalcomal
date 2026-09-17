@@ -5,6 +5,7 @@
     <title>Del pueblo al comal</title>
     <!-- Enlazamos el archivo CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <div class="contenedor">
@@ -48,6 +49,19 @@
         .catch(error => console.error('Error al registrar Service Worker:', error));
     }
   </script>
+    <script>
+      self.addEventListener("install", function (event) {
+        console.log("Service Worker instalado");
+      });
+
+      self.addEventListener("activate", function (event) {
+        console.log("Service Worker activado");
+      });
+
+      self.addEventListener("fetch", function (event) {
+        console.log("Interceptando petición a:", event.request.url);
+      });
+    </script>
 
     <script src="js/script.js"></script>
 </body>
